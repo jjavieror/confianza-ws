@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="queriesPresentationPercentajes"
+		class="java.util.HashMap">
+		<constructor-arg>
+			<map>
+				<entry key="QUERYPRESENTATIONPERCENTAJES">
+					<value>
+						SELECT A.NIT,
+						A.NOMBRE,
+						A.PERIODO,
+
+						CAST((NVL(CUMPLIMIENTO,0) *
+						100) / NVL(TOTAL,NVL(CUMPLIMIENTO,1)) AS VARCHAR2(400)) AS
+						CUMPLIMIENTO,
+
+						CAST((NVL(RC_EXTRACONTRACTUAL,0) * 100) /
+						NVL(TOTAL,NVL(RC_EXTRACONTRACTUAL,1)) AS VARCHAR2(400))
+						AS
+						RC_EXTRACONTRACTUAL,
+
+						CAST((NVL(RC_GENERAL,0) * 100) /
+						NVL(TOTAL,NVL(RC_GENERAL,1)) AS
+						VARCHAR2(400)) AS RC_GENERAL,
+
+						CAST((NVL(TRCM,0)* 100) /
+						NVL(TOTAL,NVL(TRCM,1)) AS VARCHAR2(400))
+						AS
+						TRCM,
+
+						CAST((NVL(PROPERTY,0) * 100) /
+						NVL(TOTAL,NVL(PROPERTY,1)) AS
+						VARCHAR2(400)) AS
+						PROPERTY,
+
+						CAST((NVL(TRANSPORTE,0) * 100) /
+						NVL(TOTAL,NVL(TRANSPORTE,1)) AS
+						VARCHAR2(400))
+						AS
+						TRANSPORTE
+
+						FROM
+						BDG.EXT_PRODUCCION A
+						WHERE A.NIT
+						=:NITINTERMEDIARY
+						ORDER BY 1,2,3
+					</value>
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+</beans>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration scan="true">
+
+	<include resource="org/springframework/boot/logging/logback/base.xml" />
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>[%-5level] [%logger{36}:%line] - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<!-- Configuracion de logs para front -->
+	<appender name="confianzaapp"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>confianza.log</File>
+
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>confianza.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+
+		<encoder>
+			<pattern>%date [%level] [%file:%line] %msg%n</pattern>
+		</encoder>
+	</appender>
+	
+	<!-- Appender para todo el modulo de Business para pruebas -->
+	<appender name="CONFIANZA"
+		class="ch.qos.logback.core.FileAppender">
+		<file>confianza-business.log</file>
+		<encoder>
+			<pattern>%d{MMM dd yyyy HH:mm:ss,SSS} %-5p %c - %msg%n</pattern>
+		</encoder>
+	</appender>
+	
+	<!-- Loggers del modulo Business -->
+	<logger name="co.com.ws">
+		<level value="INFO" />
+		<appender-ref ref="FILE" />
+	</logger>
+	
+	<logger name="co.com.ws.confianza.business">
+		<level value="INFO" />
+		<appender-ref ref="CONFIANZA" />
+	</logger>
+	<logger name="co.com.ws.confianza.rest.controller">
+		<level value="INFO" />
+		<appender-ref ref="CONFIANZA" />
+	</logger>
+	
+	<logger name="javax.validation" level="DEBUG" />
+
+
+
+	<root level="INFO">
+		<appender-ref ref="confianzaapp" />
+	</root>
+
+</configuration>

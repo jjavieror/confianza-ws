@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false">
+
+	<appender name="CONSOLE"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>%logger{35} - %msg%n</pattern>
+		</layout>
+	</appender>
+
+	<!-- Appender para todo el modulo de Business para pruebas -->
+	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
+		     
+		<file>confianza-business.log</file>
+		     
+		<encoder>
+			       
+			<pattern>%d{MMM dd yyyy HH:mm:ss,SSS} %-5p %c - %msg%n</pattern>
+			     
+		</encoder>
+		   
+	</appender>
+
+	<!-- Appender para todo el modulo de Business para pruebas -->
+	<appender name="CONFIANZA"
+		class="ch.qos.logback.core.FileAppender">
+		<file>confianza-ws-business.log</file>
+		<encoder>
+			<pattern>%d{MMM dd yyyy HH:mm:ss,SSS} %-5p %c - %msg%n</pattern>
+		</encoder>
+	</appender>
+	
+	<!-- Appender para todo el modulo de Business para pruebas -->
+	<appender name="CONFIANZA-AUDIT"
+		class="ch.qos.logback.core.FileAppender">
+		<file>confianza-ws-audit-business.log</file>
+		<encoder>
+			<pattern>%d{MMM dd yyyy HH:mm:ss,SSS} %-5p %c - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	
+	<!-- Loggers del modulo Business -->
+	<logger name="co.com.ws.confianza">
+		<level value="INFO" />
+		<appender-ref ref="FILE" />
+	</logger>
+	
+	<logger name="co.com.ws.confianza.business.confianza">
+		<level value="INFO" />
+		<appender-ref ref="CONFIANZA" />
+	</logger>
+
+	<root>
+		<level value="INFO" />
+		<appender-ref ref="CONSOLE" />
+	</root>
+
+</configuration>

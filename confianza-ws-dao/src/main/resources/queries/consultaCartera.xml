@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="queriesCartera" class="java.util.HashMap">
+		<constructor-arg>
+			<map>
+				<entry key="FIND_CARTERA">
+					<value>
+						SELECT NOMSUC,
+						RAMO,
+						POLIZA,
+						CERTIF,
+						NOMCLI,
+						NITC,
+						FECTER,
+						CAST(PRIMA+IVA+GASTOS AS VARCHAR2(100)) AS SUMAPRIMAIVAGASTOS1,
+						CAST(PRIMA+IVA+GASTOS AS VARCHAR2(100)) AS SUMAPRIMAIVAGASTOS2
+						FROM
+						CONFIANZA.DET_SALDOS
+						WHERE NITAGE =:CODEFIND AND
+						FECHACORTE =
+						TO_DATE(TO_CHAR(LAST_DAY(TRUNC(SYSDATE)), 'DD/MM/YYYY'), 'DD/MM/YYYY')
+					</value>
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+</beans>

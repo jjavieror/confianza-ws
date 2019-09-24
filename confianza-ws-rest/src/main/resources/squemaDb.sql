@@ -1,0 +1,16 @@
+-- create table USUARIO (
+--   ID integer not null,
+--   NOMBRE_USUARIO varchar(15) unique not null,
+--   NOMBRE varchar(20) not null,
+--   APELLIDO varchar(20),
+--   CONTRASENA varchar(99) not null ,
+--   CONTRASENA_ULTIMA_ACTUALIZACION date,
+--   CONTRASENA_DIAS_VIGENCIA integer,
+--   primary key(ID)
+-- );
+--
+-- create table PORTAL (
+--   ID integer not null,
+--   NOMBRE varchar(50) not null unique,
+--   primary key (ID)
+-- );

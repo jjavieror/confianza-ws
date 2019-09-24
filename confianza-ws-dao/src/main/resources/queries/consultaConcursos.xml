@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="queriesConcursos" class="java.util.HashMap">
+		<constructor-arg>
+			<map>
+				<entry key="FIND_CONCURSOS">
+					<value>
+						SELECT CONCURSO_NOMBRE,
+						CAST(META AS VARCHAR2(100)) AS META,
+						CAST(PRODUCCION AS VARCHAR2(100)) AS PRODUCCION,
+						CAST(RECAUDO AS
+						VARCHAR2(100)) AS RECAUDO,
+						CAST(PORC_PRODUCCION AS VARCHAR2(100))
+						AS PORC_PRODUCCION,
+						CAST(PORC_RECAUDO AS VARCHAR2(100)) AS
+						PORC_RECAUDO
+						FROM BDG.EXT_CONCURSO_PLAN_INC
+						WHERE NIT_AGENTE
+						=:NITAGENTE
+					</value>
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+</beans>

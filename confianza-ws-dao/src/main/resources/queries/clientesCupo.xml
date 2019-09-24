@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="queriesClientesCupo" class="java.util.HashMap">
+		<constructor-arg>
+			<map>
+				<entry key="FIND_TUS_CLIENTES">
+					<value>
+						SELECT A.NOM_CLIENTE,
+						A.NIT_CLIENTE,
+						CAST(A.CUPO_CLIENTE AS
+						VARCHAR2(100)) AS CUPO_CLIENTE,
+						CAST(A.CUMULO_CLIENTE AS
+						VARCHAR2(100)) AS CUMULO_CLIENTE,
+						CAST(A.DISPO_CLIENTE AS
+						VARCHAR2(100)) AS DISPO_CLIENTE
+						FROM BDG.EXT_CLIENTES A
+						WHERE
+						A.NIT_INTERMEDIARIO =:FKINTERMEDIARIO
+						ORDER BY 1,2,3
+					</value>
+				</entry>
+				<entry key="FIND_POLIZAS">
+					<value>
+						SELECT CAST(H.TEC_RAMO_DESC AS VARCHAR2(100))
+						AS
+						TEC_RAMO_DESC,
+						CAST(A.CER_NUM_POLIZA AS
+						VARCHAR2(100)) AS
+						CER_NUM_POLIZA,
+						CAST(A.CER_NUM_CERTIFICADO AS
+						VARCHAR2(100)) AS
+						CER_NUM_CERTIFICADO,
+						C.PER_PERSONA
+						AS
+						CPER_PERSONA,
+						C.PER_PERSONA_NOMBRE AS CPER_PERSONA_NOMBRE,
+						E.PER_PERSONA AS
+						EPER_PERSONA,
+						E.PER_PERSONA_NOMBRE AS
+						EPER_PERSONA_NOMBRE,
+						G.PER_PERSONA AS GPER_PERSONA,
+						G.PER_PERSONA_NOMBRE AS
+						GPER_PERSONA_NOMBRE,
+						A.CER_FECHA_DESDE,
+						A.CER_FECHA_HASTA,
+						A.CER_PRIMA_EMIT,
+						CAST(A.CER_VALOR_ASEGURADO AS
+						VARCHAR2(100)) AS
+						CER_VALOR_ASEGURADO
+						FROM BDG.FACT_CERTIFICADOS A
+						JOIN
+						BDG.DIM_PERSONA_VINCULACION B ON A.CER_FK_TOMADOR = B.PERVIN_ID
+						JOIN BDG.DIM_PERSONA C ON B.PERVIN_CODIGO = C.PER_CODIGO AND
+						C.ESTADO = 'ACTIVO'
+						JOIN BDG.DIM_PERSONA_VINCULACION D ON
+						A.CER_FK_ASEGURADO = D.PERVIN_ID
+						JOIN BDG.DIM_PERSONA E ON
+						D.PERVIN_CODIGO = E.PER_CODIGO AND
+						E.ESTADO = 'ACTIVO'
+						JOIN
+						BDG.DIM_PERSONA_VINCULACION F ON A.CER_FK_CLIENTE = F.PERVIN_ID
+						JOIN BDG.DIM_PERSONA G ON F.PERVIN_CODIGO = G.PER_CODIGO AND
+						G.ESTADO = 'ACTIVO'
+						JOIN BDG.DIM_TECNICA H ON A.CER_FK_TECNICA =
+						H.TEC_ID
+						JOIN BDG.DIM_INTERMEDIARIO I ON I.INTRM_ID =
+						A.CER_FK_INTERMEDIARIO
+						WHERE I.INTRM_INTERMEDIARIO
+						=:FKINTERMEDIARIO AND
+						A.CER_FECHA_HASTA
+						&gt;
+						TO_DATE(:FECHAHASTA,'mm/dd/yyyy') AND
+						A.CER_FECHA_DESDE &lt;
+						TO_DATE(:FECHADESDE,'mm/dd/yyyy') :VALIDATION_POLIZAS
+					</value>
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+</beans>

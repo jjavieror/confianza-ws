@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="queriesConsorcioUnionTemporal" class="java.util.HashMap">
+		<constructor-arg>
+			<map>
+				<entry key="FIND_CONSORCIOS_UT">
+					<value>
+						SELECT A.NOM_CONSORCIO,
+						A.NOM_CONSORCIADO,
+						A.NIT_CONSORCIADO,
+						CAST(A.CUPO_CONSORCIADO AS VARCHAR2(100)) AS CUPO_CONSORCIADO,
+						CAST(A.CUMULO_CONSORCIADO AS VARCHAR2(100)) AS CUMULO_CONSORCIADO,
+						CAST(A.DISPO_CONSORCIADO AS VARCHAR2(100)) AS DISPO_CONSORCIADO
+						FROM
+						BDG.EXT_CONSORCIOS A
+						WHERE A.NIT_INTERMEDIARIO
+						=:CODEINTERMEDIARY
+						ORDER BY 1,2,3
+					</value>
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+</beans>
