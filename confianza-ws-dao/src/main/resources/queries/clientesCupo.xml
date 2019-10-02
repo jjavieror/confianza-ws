@@ -75,7 +75,7 @@
 						&gt;
 						TO_DATE(:FECHAHASTA,'mm/dd/yyyy') AND
 						A.CER_FECHA_DESDE &lt;
-						TO_DATE(:FECHADESDE,'mm/dd/yyyy') :VALIDATION_POLIZAS
+						TO_DATE(:FECHADESDE,'mm/dd/yyyy') :VALIDATIONPOLIZAS
 					</value>
 				</entry>
 			</map>

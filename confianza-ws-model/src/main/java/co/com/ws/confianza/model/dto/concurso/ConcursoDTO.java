@@ -6,6 +6,7 @@ public class ConcursoDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String nombreConcurso;
 	private String meta;
+	private String prizeCategory;
 	private String produccion;
 	private String recaudo;
 	private String porcProduccion;
@@ -21,6 +22,14 @@ public class ConcursoDTO implements Serializable {
 
 	public String getMeta() {
 		return meta;
+	}
+
+	public String getPrizeCategory() {
+		return prizeCategory;
+	}
+
+	public void setPrizeCategory(String prizeCategory) {
+		this.prizeCategory = prizeCategory;
 	}
 
 	public void setMeta(String meta) {

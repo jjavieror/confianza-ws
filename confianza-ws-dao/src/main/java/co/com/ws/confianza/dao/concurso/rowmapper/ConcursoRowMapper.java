@@ -16,7 +16,7 @@ public class ConcursoRowMapper implements RowMapper<ConcursoDTO> {
 		concursoDTO.setPorcRecaudo(rs.getString("PORC_RECAUDO"));
 		concursoDTO.setProduccion(rs.getString("PORC_PRODUCCION"));
 		concursoDTO.setRecaudo(rs.getString("RECAUDO"));
-
+		concursoDTO.setPrizeCategory(rs.getString("PREMIO_CATEGORIA"));
 		return concursoDTO;
 	}
 }

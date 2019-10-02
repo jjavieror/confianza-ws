@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Repository;
 
-import co.com.ws.confianza.dao.AbstractJdbcOracleRepository;
 import co.com.ws.confianza.dao.cartera.rowmapper.CarteraRowMapper;
+import co.com.ws.confianza.dao.external.AbstractJdbcOracleRepository;
 import co.com.ws.confianza.model.dto.cartera.CarteraDTO;
 
 @Repository

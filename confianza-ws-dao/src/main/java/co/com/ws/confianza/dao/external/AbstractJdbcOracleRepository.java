@@ -129,6 +129,22 @@ public abstract class AbstractJdbcOracleRepository extends BaseJdbcTemplateOracl
 		return list;
 	}
 
+	public <T> List<T> findAllBeanString(String query, MapSqlParameterSource mapParameters, RowMapper<T> rowMapper) {
+
+		LOGGER.debug("nameQuery");
+		List<T> list = null;
+		if (getQueryMap() != null && query != null) {
+			try {
+				LOGGER.debug("query {} ", query);
+				list = getNamedParameterJdbcTemplate().query(query, mapParameters, rowMapper);
+			} catch (DataAccessException e) {
+				LOGGER.error("Error findAllBean ", e);
+			}
+
+		}
+		return list;
+	}
+	
 	public List<SelectOptionsDTO> findAllSelectOptions(String id, String name, String tableName) {
 		StringBuilder query = new StringBuilder(
 				String.format(getGenericQueryMap().get("findAllSelectOptions"), id, name, tableName.toUpperCase()));
