@@ -19,12 +19,12 @@ public class PolizasRowmapper implements RowMapper<PolizasClienteCupoDTO> {
 		polizas.setcPerPersonaNombre(rs.getString("CPER_PERSONA_NOMBRE"));
 		polizas.setgPerPersona(rs.getString("GPER_PERSONA"));
 		polizas.setgPerPersonaNombre(rs.getString("GPER_PERSONA_NOMBRE"));
-		polizas.setValorDeducible("");
 		polizas.setaCerValorAsegurado(rs.getString("CER_VALOR_ASEGURADO"));
 		polizas.setePerPersona(rs.getString("EPER_PERSONA"));
 		polizas.setePerPersonaNombre(rs.getString("EPER_PERSONA_NOMBRE"));
 		polizas.setTecRamoDesc(rs.getString("TEC_RAMO_DESC"));
-
+		polizas.setTecSubProducto(rs.getString("TEC_SUBPRODUCTO"));
+		polizas.setCerFechaExpedicion(rs.getDate("CER_FECHA_EXPEDICION"));
 		return polizas;
 	}
 }

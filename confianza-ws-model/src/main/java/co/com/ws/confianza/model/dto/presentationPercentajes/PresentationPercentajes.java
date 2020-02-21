@@ -25,6 +25,8 @@ public class PresentationPercentajes implements Serializable {
 
 	public String transport;
 
+	public String vidaGrupo;
+
 	public String getName() {
 		return name;
 	}
@@ -88,5 +90,15 @@ public class PresentationPercentajes implements Serializable {
 	public void setTransport(String transport) {
 		this.transport = transport;
 	}
+
+	public String getVidaGrupo() {
+		return vidaGrupo;
+	}
+
+	public void setVidaGrupo(String vidaGrupo) {
+		this.vidaGrupo = vidaGrupo;
+	}
+	
+	
 
 }

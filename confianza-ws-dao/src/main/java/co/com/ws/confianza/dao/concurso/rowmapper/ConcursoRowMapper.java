@@ -11,7 +11,7 @@ public class ConcursoRowMapper implements RowMapper<ConcursoDTO> {
 	public ConcursoDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
 		ConcursoDTO concursoDTO = new ConcursoDTO();
 		concursoDTO.setMeta(rs.getString("META"));
-		concursoDTO.setNombreConcurso(rs.getString("CONCURSO_NOMBRE"));
+		concursoDTO.setNombreConcurso(rs.getString("CONCURSO_NOMBRE") + "-" + rs.getString("PREMIO_CATEGORIA"));
 		concursoDTO.setPorcProduccion(rs.getString("PRODUCCION"));
 		concursoDTO.setPorcRecaudo(rs.getString("PORC_RECAUDO"));
 		concursoDTO.setProduccion(rs.getString("PORC_PRODUCCION"));

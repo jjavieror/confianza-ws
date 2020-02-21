@@ -16,7 +16,7 @@ public class ConcursoServiceImpl implements ConcursoService {
 	private ConcursoDAO concursoDao;
 
 	@Override
-	public List<ConcursoDTO> findConcurso(String nitIntermediario) {
-		return this.concursoDao.findConcurso(nitIntermediario);
+	public List<ConcursoDTO> findConcurso(String nitIntermediario,String typeName) {
+		return this.concursoDao.findConcurso(nitIntermediario, typeName);
 	}
 }

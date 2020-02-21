@@ -10,6 +10,8 @@ public interface CuposClientesService {
 	List<ClientesCupoDTO> findCuposClientes(String cliente, String fecha);
 
 	List<PolizasClienteCupoDTO> findPolizas(String codigo, String fechaDesde, String fechaHasta, String cerFkTecnica,
-			String cerFkRangoValorAsegurado, String cerFkGeografica, String cerNumPoliza, String cerNumCertificado);
+			String cerFkRangoValorAsegurado, String cerFkGeografica, String cerNumPoliza, String cerNumCertificado,
+			String perPersona, String primaEmitStart, String primaEmitEnd, String cerValorAseguradoStart,
+			String cerValorAseguradoEnd);
 
 }

@@ -17,7 +17,10 @@ public class CarteraServiceImpl implements CarteraService {
 
 	@Transactional(readOnly = true)
 	@Override
-	public List<CarteraDTO> findCartera(String code) {
-		return carteraDao.findCartera(code);
+	public List<CarteraDTO> findCartera(String code, String ramo, String nitTc, String poliza, String certif,
+			String sucur, String primaStart, String primaEnd, String valorAseguradoStart, String valorAseguradoFinal) {
+		System.out.println("Paso por el service Implements -------------------------->");
+		return carteraDao.findCartera(code, ramo, nitTc, poliza, certif, sucur, primaStart, primaEnd,
+				valorAseguradoStart, valorAseguradoFinal);
 	}
 }

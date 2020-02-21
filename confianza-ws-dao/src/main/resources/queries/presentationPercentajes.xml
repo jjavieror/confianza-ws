@@ -41,7 +41,13 @@
 						NVL(TOTAL,NVL(TRANSPORTE,1)) AS
 						VARCHAR2(400))
 						AS
-						TRANSPORTE
+						TRANSPORTE,
+
+						CAST((NVL(VIDA_GRUPO,0) * 100) /
+						NVL(TOTAL,NVL(VIDA_GRUPO,1)) AS
+						VARCHAR2(400))
+						AS
+						VIDA_GRUPO
 
 						FROM
 						BDG.EXT_PRODUCCION A

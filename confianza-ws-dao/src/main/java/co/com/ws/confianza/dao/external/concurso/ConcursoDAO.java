@@ -6,6 +6,6 @@ import co.com.ws.confianza.model.dto.concurso.ConcursoDTO;
 
 public interface ConcursoDAO {
 
-	List<ConcursoDTO> findConcurso(String nitIntermediario);
+	List<ConcursoDTO> findConcurso(String nitIntermediario, String typeName);
 
 }

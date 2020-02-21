@@ -7,14 +7,19 @@ public class CarteraDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	public String nomsuc;
-	public String ramo;
 	public String poliza;
 	public String certif;
 	public String nomclic;
 	public String nitc;
 	public Date fecter;
-	public String sumaPrimaIvaGastos1;
-	public String sumaPrimaIvaGastos2;
+	/* Nuevos campos segunda version del query */
+	public String ramo;
+	public Date fecini;
+	public String prima;
+	public String iva;
+	public String primaGastos;
+	public String totalPoliza;
+	public String valorAsegurado;
 
 	public String getNomsuc() {
 		return nomsuc;
@@ -72,20 +77,53 @@ public class CarteraDTO implements Serializable {
 		this.fecter = fecter;
 	}
 
-	public String getSumaPrimaIvaGastos1() {
-		return sumaPrimaIvaGastos1;
+	public Date getFecini() {
+		return fecini;
 	}
 
-	public void setSumaPrimaIvaGastos1(String sumaPrimaIvaGastos1) {
-		this.sumaPrimaIvaGastos1 = sumaPrimaIvaGastos1;
+	public void setFecini(Date fecini) {
+		this.fecini = fecini;
 	}
 
-	public String getSumaPrimaIvaGastos2() {
-		return sumaPrimaIvaGastos2;
+	public String getPrima() {
+		return prima;
 	}
 
-	public void setSumaPrimaIvaGastos2(String sumaPrimaIvaGastos2) {
-		this.sumaPrimaIvaGastos2 = sumaPrimaIvaGastos2;
+	public void setPrima(String prima) {
+		this.prima = prima;
 	}
+
+	public String getIva() {
+		return iva;
+	}
+
+	public void setIva(String iva) {
+		this.iva = iva;
+	}
+
+	public String getPrimaGastos() {
+		return primaGastos;
+	}
+
+	public void setPrimaGastos(String primaGastos) {
+		this.primaGastos = primaGastos;
+	}
+
+	public String getTotalPoliza() {
+		return totalPoliza;
+	}
+
+	public void setTotalPoliza(String totalPoliza) {
+		this.totalPoliza = totalPoliza;
+	}
+
+	public String getValorAsegurado() {
+		return valorAsegurado;
+	}
+
+	public void setValorAsegurado(String valorAsegurado) {
+		this.valorAsegurado = valorAsegurado;
+	}
+
 
 }

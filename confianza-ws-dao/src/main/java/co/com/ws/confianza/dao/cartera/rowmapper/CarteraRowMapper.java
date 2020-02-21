@@ -18,9 +18,13 @@ public class CarteraRowMapper implements RowMapper<CarteraDTO> {
 		cartera.setNomsuc(rs.getString("NOMSUC"));
 		cartera.setPoliza(rs.getString("POLIZA"));
 		cartera.setRamo(rs.getString("RAMO"));
-		cartera.setSumaPrimaIvaGastos1(rs.getString("SUMAPRIMAIVAGASTOS1"));
-		cartera.setSumaPrimaIvaGastos2(rs.getString("SUMAPRIMAIVAGASTOS1"));
-
+		/*rowMapper query segunda version*/
+		cartera.setFecini(rs.getDate("FECINI"));
+		cartera.setPrima(rs.getString("PRIMA"));
+		cartera.setIva(rs.getString("IVA"));
+		cartera.setPrimaGastos(rs.getString("PRIMA_GASTOS"));
+		cartera.setTotalPoliza(rs.getString("TOTAL_POLIZA"));
+		cartera.setValorAsegurado(rs.getString("VALOR_ASEGURADO"));
 		return cartera;
 	}
 }

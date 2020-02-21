@@ -15,15 +15,22 @@ public class ConcursoDAOImpl extends AbstractJdbcOracleRepository implements Con
 	private static final String BEAN_QUERIES = "queriesConcursos";
 	private static final String FIND_CONCURSOS = "FIND_CONCURSOS";
 	private static final String NITAGENTE = "NITAGENTE";
+	private static final String PARAMSLIKE = "PARAMSLIKE";
 
 	public ConcursoDAOImpl() {
 		super(BEAN_QUERIES);
 	}
 
 	@Override
-	public List<ConcursoDTO> findConcurso(String nitIntermediario) {
+	public List<ConcursoDTO> findConcurso(String nitIntermediario, String typeName) {
 		MapSqlParameterSource mapParameters = new MapSqlParameterSource();
 		mapParameters.addValue(NITAGENTE, nitIntermediario);
+		System.out.println("---------------->    Numero" + typeName + "-------------->" + typeName.equals(typeName));
+		if(typeName.equals("1")) {
+			mapParameters.addValue(PARAMSLIKE, "%CONCUR%");
+		}else {
+			mapParameters.addValue(PARAMSLIKE, "%CONVEN%");
+		}
 		return findAllBean(FIND_CONCURSOS, mapParameters, new ConcursoRowMapper());
 	}
 }

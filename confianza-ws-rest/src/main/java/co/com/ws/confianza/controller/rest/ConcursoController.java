@@ -18,7 +18,7 @@ public class ConcursoController {
 	private ConcursoService concursoService;
 
 	@RequestMapping(value = { "/get" }, method = { RequestMethod.GET })
-	public List<ConcursoDTO> findCartera(@RequestParam(name = "nitIntermediario") String nitIntermediario) {
-		return concursoService.findConcurso(nitIntermediario);
+	public List<ConcursoDTO> findCartera(@RequestParam(name = "nitIntermediario") String nitIntermediario, @RequestParam(name = "concurso") String typeName) {
+		return concursoService.findConcurso(nitIntermediario, typeName);
 	}
 }

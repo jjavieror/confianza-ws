@@ -7,8 +7,10 @@ import co.com.ws.confianza.model.dto.clientescupo.PolizasClienteCupoDTO;
 
 public interface ClientesCupoDAO {
 
-	List<PolizasClienteCupoDTO> findPolizas(String codigo, String fechaDesde, String fechaHasta, String cerFkTecnica,
-			String cerFkRangoValorAsegurado, String cerFkGeografica, String cerNumPoliza, String cerNumCertificado);
+	List<PolizasClienteCupoDTO> findPolizas(String codigo, String fechaDesde, String fechaHasta,
+			String cerFkTecnica, String cerFkRangoValorAsegurado, String cerFkGeografica, String cerNumPoliza,
+			String cerNumCertificado, String perPersona, String primaEmitStart, String primaEmitEnd,
+			String cerValorAseguradoStart, String cerValorAseguradoEnd);
 
 	List<ClientesCupoDTO> findClientesCupos(String cliente, String fecha);
 

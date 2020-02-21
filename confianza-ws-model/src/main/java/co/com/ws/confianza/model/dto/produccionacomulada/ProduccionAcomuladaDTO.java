@@ -10,6 +10,7 @@ public class ProduccionAcomuladaDTO {
 	public String trcm;
 	public String property;
 	public String transporte;
+	public String vidaGrupo;
 
 	public String getNit() {
 		return nit;
@@ -82,5 +83,15 @@ public class ProduccionAcomuladaDTO {
 	public void setTransporte(String transporte) {
 		this.transporte = transporte;
 	}
+
+	public String getVidaGrupo() {
+		return vidaGrupo;
+	}
+
+	public void setVidaGrupo(String vidaGrupo) {
+		this.vidaGrupo = vidaGrupo;
+	}
+	
+	
 
 }

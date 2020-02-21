@@ -13,7 +13,7 @@ import co.com.ws.confianza.model.dto.clientescupo.PolizasClienteCupoDTO;
 @Service
 @Transactional
 public class CuposClientesServicesImpl implements CuposClientesService {
-	
+
 	@Autowired
 	private ClientesCupoDAO clienteCupoDao;
 
@@ -27,8 +27,10 @@ public class CuposClientesServicesImpl implements CuposClientesService {
 	@Override
 	public List<PolizasClienteCupoDTO> findPolizas(String codigo, String fechaDesde, String fechaHasta,
 			String cerFkTecnica, String cerFkRangoValorAsegurado, String cerFkGeografica, String cerNumPoliza,
-			String cerNumCertificado) {
+			String cerNumCertificado, String perPersona, String primaEmitStart, String primaEmitEnd,
+			String cerValorAseguradoStart, String cerValorAseguradoEnd) {
 		return this.clienteCupoDao.findPolizas(codigo, fechaDesde, fechaHasta, cerFkTecnica, cerFkRangoValorAsegurado,
-				cerFkGeografica, cerNumPoliza, cerNumCertificado);
+				cerFkGeografica, cerNumPoliza, cerNumCertificado, perPersona, primaEmitStart, primaEmitEnd,
+				cerValorAseguradoStart, cerValorAseguradoEnd);
 	}
 }

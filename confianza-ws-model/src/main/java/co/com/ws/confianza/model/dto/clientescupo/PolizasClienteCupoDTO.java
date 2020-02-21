@@ -19,6 +19,8 @@ public class PolizasClienteCupoDTO implements Serializable {
 	private String aCerValorAsegurado;
 	private String valorDeducible;
 	private String tecRamoDesc;
+	private String tecSubProducto;
+	private Date cerFechaExpedicion;
 
 	public String getaCerNumPolizas() {
 		return aCerNumPolizas;
@@ -130,6 +132,22 @@ public class PolizasClienteCupoDTO implements Serializable {
 
 	public void setTecRamoDesc(String tecRamoDesc) {
 		this.tecRamoDesc = tecRamoDesc;
+	}
+
+	public String getTecSubProducto() {
+		return tecSubProducto;
+	}
+
+	public void setTecSubProducto(String tecSubProducto) {
+		this.tecSubProducto = tecSubProducto;
+	}
+
+	public Date getCerFechaExpedicion() {
+		return cerFechaExpedicion;
+	}
+
+	public void setCerFechaExpedicion(Date cerFechaExpedicion) {
+		this.cerFechaExpedicion = cerFechaExpedicion;
 	}
 
 }

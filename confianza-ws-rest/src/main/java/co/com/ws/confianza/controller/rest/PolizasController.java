@@ -26,16 +26,23 @@ public class PolizasController {
 			@RequestParam(name = "cerFkRangoValorAsegurado", required = false) String cerFkRangoValorAsegurado,
 			@RequestParam(name = "cerFkGeografica", required = false) String cerFkGeografica,
 			@RequestParam(name = "cerFkNumPoliza", required = false) String cerNumPoliza,
-			@RequestParam(name = "cerFkNumCertificado", required = false) String cerNumCertificado) {
+			@RequestParam(name = "cerFkNumCertificado", required = false) String cerNumCertificado,
+			@RequestParam(name = "perPersona", required = false) String perPersona,
+			@RequestParam(name = "primaEmitStart", required = false) String primaEmitStart,
+			@RequestParam(name = "primaEmitEnd", required = false) String primaEmitEnd,
+			@RequestParam(name = "cerValorAseguradoStart", required = false) String cerValorAseguradoStart,
+			@RequestParam(name = "cerValorAseguradoEnd", required = false) String cerValorAseguradoEnd) {
 		List<PolizasClienteCupoDTO> list = new ArrayList<PolizasClienteCupoDTO>();
 		try {
 			if (codigoCliente != null && !codigoCliente.isEmpty()) {
 				list = cuposClientes.findPolizas(codigoCliente, fechaDesde, fechaHasta, cerFkTecnica,
-						cerFkRangoValorAsegurado, cerFkGeografica, cerNumPoliza, cerNumCertificado);
+						cerFkRangoValorAsegurado, cerFkGeografica, cerNumPoliza, cerNumCertificado, perPersona,
+						primaEmitStart, primaEmitEnd, cerValorAseguradoStart, cerValorAseguradoEnd);
 			}
 		} catch (Exception e) {
 			System.out.println("Error--------------------------_> " + e);
 		}
 		return list;
 	}
+
 }

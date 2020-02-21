@@ -20,6 +20,7 @@ public class PresentationPersentajesRowMapper implements RowMapper<PresentationP
 		percentajes.setProperty(rs.getString("PROPERTY"));
 		percentajes.setTransport(rs.getString("TRANSPORTE"));
 		percentajes.setTrcm(rs.getString("TRCM"));
+		percentajes.setVidaGrupo(rs.getString("VIDA_GRUPO"));
 		// TODO Auto-generated method stub
 		return percentajes;
 	}

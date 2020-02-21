@@ -19,7 +19,7 @@ public class ProduccionAcomuladaRowMapper implements RowMapper<ProduccionAcomula
 		produccion.setRcGeneral(rs.getString("RC_GENERAL"));
 		produccion.setTransporte(rs.getString("TRANSPORTE"));
 		produccion.setTrcm(rs.getString("TRCM"));
-
+		produccion.setVidaGrupo(rs.getString("VIDA_GRUPO"));
 		return produccion;
 	}
 }
